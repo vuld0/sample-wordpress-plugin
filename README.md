@@ -1,0 +1,3 @@
+# sample-wordpress-plugin
+
+added
