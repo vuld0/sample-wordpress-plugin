@@ -1,3 +1,3 @@
 # sample-wordpress-plugin
 
-added
+This is a simple wordpress plugin
