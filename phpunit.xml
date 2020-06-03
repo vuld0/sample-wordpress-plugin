@@ -1,9 +1,11 @@
-<phpunit bootstrap="tests/phpunit/bootstrap.php" backupGlobals="false"
-        colors="false" convertErrorsToExceptions="true"
-        convertNoticesToExceptions="true" convertWarningsToExceptions="true">
-        <testsuites>
-                <testsuite>
-                        <file>tests/phpunit/tests/test-wp-simple-plugin.php</file>
-                </testsuite>
-        </testsuites>
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php"
+         colors="true"
+         verbose="true"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
