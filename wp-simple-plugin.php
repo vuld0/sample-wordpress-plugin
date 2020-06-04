@@ -6,9 +6,12 @@
  * Description: Just a sample plugin
  * Version: 1.0.0 
  * Author: Chirag Bablani
- * Author URI: http://www.codetab.org/about/
  * License: GPLv2
  */
+
+//Created a class that prints a normal statement on the webpage when a shortcode is given in the post page in wordpress.
+
+
 class TestPlugin
 {
 		public function wp_simple_plugin()
@@ -18,8 +21,14 @@ class TestPlugin
 		}
 	
 }
+
 $printing = new TestPlugin();
+//adding the shortcode and calling the above defined function
+
 add_shortcode('example',array('TestPlugin','wp_simple_plugin'));
+
+
+//Now let`s create a menu option in the wordpress dashboard
 
 	function wp_admin_menu_option()
 	{
@@ -28,8 +37,11 @@ add_shortcode('example',array('TestPlugin','wp_simple_plugin'));
 
 	add_action('admin_menu','wp_admin_menu_option');
 
+//Now we want this page to ask for the option to provide the name of the header and footers in the webpage.
+
 	function scripts_page()
 	{
+		//stores the name of the submitted header and footer scripts
 
 		if(array_key_exists('submit_scripts_update', $_POST))
 		{
@@ -65,6 +77,9 @@ add_shortcode('example',array('TestPlugin','wp_simple_plugin'));
 
 	<?php
 	}
+
+//Now let`s display the header and footer scripts on the webpage itself and return the values so that we can test it.
+
 class GET_Header_Footer
 {
 	function display_header_scripts()
@@ -86,5 +101,6 @@ class GET_Header_Footer
 	}
 	
 }
+//adding action
 add_action('wp_head',array('GET_Header_Footer','display_header_scripts'));
 add_action('wp_footer',array('GET_Header_Footer','display_footer_scripts'));

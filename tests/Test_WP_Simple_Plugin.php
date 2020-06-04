@@ -1,12 +1,10 @@
 <?php
 /**
- * Class SampleTest
+ * PluginTest
  *
  */
 
-/**
- * Sample test case.
- */
+
 class DemoPluginTest extends WP_UnitTestCase {
 
 
@@ -23,13 +21,18 @@ class DemoPluginTest extends WP_UnitTestCase {
     	$info = $this->class_instance->wp_simple_plugin();
     	$this->assertEquals($info,"Yo this is an example plugin");
     }
+
+
      public function test_header()
     {
         $head_script = $this->header_footer_test->display_header_scripts();
         $this->assertEquals($head_script,"Header Scriptss");
     }
-	function test_sample() {
-		// Replace this with some actual testing code.
-		$this->assertTrue( true );
-	}
+
+    public function test_footer()
+    {
+        $footer_script = $this->header_footer_test->display_footer_scripts();
+        $this->assertEquals($footer_script,"Footer Scriptss");
+    }
+    
 }
