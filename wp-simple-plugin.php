@@ -82,25 +82,40 @@ add_shortcode('example',array('TestPlugin','wp_simple_plugin'));
 
 class GET_Header_Footer
 {
-	function display_header_scripts()
+	public function __construct()
+	{
+		//adding action
+		add_action('wp_head',[$this,'display_header_scripts']);
+		add_action('wp_footer',[$this,'display_footer_scripts']);
+	}
+
+	public function display_header_scripts()
 	{
 		$header_scripts = get_option('test_header_scripts','none');
 
-		print $header_scripts;
-		return $header_scripts;
-
+		echo $this->get_name_header($header_scripts);
+		
 	}
 	
-	function display_footer_scripts()
+	public function display_footer_scripts()
 	{
 		$footer_scripts = get_option('test_footer_scripts','none');
 
-		print $footer_scripts;
-		return $footer_scripts;
+		echo $this->get_name_footer($footer_scripts);
+		
 
+	}
+	public function get_name_header($head)
+	{
+		return $head;
+	}
+	public function get_name_footer($foot)
+	{
+		return $foot;
 	}
 	
 }
-//adding action
-add_action('wp_head',array('GET_Header_Footer','display_header_scripts'));
-add_action('wp_footer',array('GET_Header_Footer','display_footer_scripts'));
+//Instantiating the class
+new GET_Header_Footer();
+
+
