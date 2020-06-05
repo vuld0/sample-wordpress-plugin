@@ -51,7 +51,16 @@ example@example:~$ sudo apt-get update
 example@example:~$ sudo apt-get install phpunit
 ```
 
-After installing the phpunit, go to the repository folder and run:
+After installing the phpunit, run the >install-wp-tests.sh from the >bin directory.
+
+```console
+bin/install-wp-tests.sh wordpress_test homestead 'secret' localhost latest
+```
+The above given command will create a database named "wordpress_test" for the username "homestead" and give the password as "secret" to the mysql.
+
+<b>Tip:</b> Change the arguments based on the requirement.
+
+After running the installation, go to the repository folder and run:
 
 ```console
 example@example:~$ phpunit
