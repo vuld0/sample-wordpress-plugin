@@ -1,4 +1,4 @@
-# sample-wordpress-plugin
+# simple-wordpress-plugin
 
 This is a simple wordpress plugin
 
